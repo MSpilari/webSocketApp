@@ -1,14 +1,14 @@
-# 📸 WebSocket Photo Album - Fullstack App (Angular + Spring Boot + AWS + WebSocket)
+# 📸 WebSocket Photo Album - Fullstack App (React + Vite + Spring Boot + AWS + WebSocket)
 
 ## 🌍 Sobre o Projeto | About the Project
 
 **PT-BR:**  
-Este projeto fullstack é uma aplicação de gerenciamento de álbuns de fotos em tempo real. Ele utiliza **Spring Boot** no backend e **Angular** no frontend. A comunicação entre cliente e servidor é feita com **WebSockets**, e os dados são armazenados utilizando os serviços **S3** e **DynamoDB** da AWS, simulados localmente com **LocalStack**.
+Este projeto fullstack é uma aplicação de gerenciamento de álbuns de fotos em tempo real. Ele utiliza **Spring Boot** no backend e **React** com **Vite** no frontend. A comunicação entre cliente e servidor é feita com **WebSockets**, e os dados são armazenados utilizando os serviços **S3** e **DynamoDB** da AWS, simulados localmente com **LocalStack**.
 
 Futuramente, a infraestrutura será provisionada com **Terraform**, adotando uma abordagem escalável e sustentável com Infrastructure as Code (IaC).
 
 **EN:**  
-This fullstack project is a real-time photo album management app. It uses **Spring Boot** for the backend and **Angular** for the frontend. Client-server communication happens via **WebSockets**, and data is stored using **AWS S3** and **DynamoDB**, simulated locally using **LocalStack**.
+This fullstack project is a real-time photo album management app. It uses **Spring Boot** for the backend and **React** with **Vite** for the frontend. Client-server communication happens via **WebSockets**, and data is stored using **AWS S3** and **DynamoDB**, simulated locally using **LocalStack**.
 
 In the near future, the infrastructure will be provisioned with **Terraform**, embracing a scalable and maintainable **Infrastructure as Code (IaC)** approach.
 
@@ -26,10 +26,11 @@ In the near future, the infrastructure will be provisioned with **Terraform**, e
 
 ### Frontend
 
-- Angular
+- React
+- Vite
 - TypeScript
-- RxJS + WebSocket API
-- Angular Material (opcional)
+- WebSocket API
+- Tailwind CSS (opcional)
 
 ### Infra
 
@@ -45,7 +46,7 @@ In the near future, the infrastructure will be provisioned with **Terraform**, e
 project-root/
 │
 ├── backend/           # Projeto Spring Boot
-├── frontend/          # Projeto Angular
+├── frontend/          # Projeto React + Vite
 └── docker-compose.yml # Configuração do LocalStack
 ```
 
@@ -56,7 +57,7 @@ project-root/
 ### 🔧 Requisitos | Requirements
 
 - Java 21+
-- Node.js + Angular CLI
+- Node.js + npm
 - Docker + Docker Compose
 - Terraform CLI (futuramente)
 
@@ -81,7 +82,7 @@ project-root/
 
 ---
 
-### 🖥️ Frontend (Angular)
+### 🖥️ Frontend (React + Vite)
 
 1. Instale as dependências:
 
@@ -92,7 +93,7 @@ project-root/
 
 2. Inicie o servidor de desenvolvimento:
    ```bash
-   ng serve
+   npm run dev
    ```
 
 ---
@@ -106,5 +107,3 @@ A aplicação utiliza **WebSockets** para atualizações em tempo real. Ao adici
 ## 📦 Terraform (em breve)
 
 A criação de recursos como buckets S3 e tabelas DynamoDB será migrada para **Terraform** para garantir versionamento, reprodutibilidade e uma infraestrutura mais sólida e segura.
-
----
