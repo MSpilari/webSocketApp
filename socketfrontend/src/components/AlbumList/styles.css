@@ -1,0 +1,13 @@
+.albumUList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.listItem{
+    margin: 2px;
+}
+
+.imageAlbum{
+    max-width: 200px;
+}
