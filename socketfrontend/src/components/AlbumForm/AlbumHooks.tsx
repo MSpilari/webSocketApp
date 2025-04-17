@@ -29,9 +29,8 @@ const useAlbumForm = () => {
 
     try {
       await uploadAlbum(albumName, selectedFiles);
-      alert("Album uploaded successfully!");
     } catch (error: any) {
-      alert("Error uploading album: " + error.message);
+      console.log(error);
     }
   };
 
