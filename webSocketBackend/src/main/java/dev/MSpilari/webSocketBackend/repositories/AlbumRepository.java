@@ -24,12 +24,14 @@ public class AlbumRepository {
         this.albumTable = enhancedClient.table(tableName, TableSchema.fromBean(Album.class));
     }
 
-    public void saveAlbum(List<String> picturesUrl, String albumName) {
+    public Album saveAlbum(List<String> picturesUrl, String albumName) {
         String albumId = generateAlbumId();
 
         Album newAlbum = new Album(albumId, albumName, picturesUrl);
 
         albumTable.putItem(newAlbum);
+
+        return newAlbum;
     }
 
     private String generateAlbumId() {
