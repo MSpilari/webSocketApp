@@ -45,14 +45,14 @@ In the near future, the infrastructure will be provisioned with **Terraform**, e
 ```
 project-root/
 │
-├── backend/           # Projeto Spring Boot
-├── frontend/          # Projeto React + Vite
+├── webSocketBackend/           # Projeto Spring Boot
+├── socketFrontend/          # Projeto React + Vite
 └── docker-compose.yml # Configuração do LocalStack
 ```
 
 ---
 
-## ⚙️ Executando Localmente | Running Locally
+## ⚙️ Executando Localmente | Running Locally | Development Mode
 
 ### 🔧 Requisitos | Requirements
 
@@ -65,29 +65,37 @@ project-root/
 
 ### 🚀 Backend (Spring Boot + LocalStack)
 
-1. Suba os containers com LocalStack:
+1. Suba o contêiner com LocalStack | Get Localstack up and running:
 
    ```bash
-   docker-compose up
+   cd webSocketBackend
+   docker-compose up -d
    ```
 
-2. Inicie o backend:
+2. Inicie o backend | Init Spring Boot:
+
    ```bash
-   cd backend
    ./mvnw spring-boot:run
    ```
 
-> **Nota:** A criação de buckets S3 e tabelas DynamoDB via código é feita **apenas para fins educacionais**, com o objetivo de aprender a integrar a AWS com o Spring Boot.  
-> Em ambientes reais, a abordagem mais indicada é criar esses recursos com uma ferramenta de **Infrastructure as Code**, como **Terraform**, e apenas conectar-se a eles via aplicação.
+   PT-BR:
+
+   > **Nota:** A criação de buckets S3 e tabelas DynamoDB via código é feita **apenas para fins educacionais**, com o objetivo de aprender a integrar a AWS com o Spring Boot.  
+   > Em ambientes reais, a abordagem mais indicada é criar esses recursos com uma ferramenta de **Infrastructure as Code**, como **Terraform**, e apenas conectar-se a eles via aplicação.
+
+   EN:
+
+   > **Note:** The creation of S3 buckets and DynamoDB tables via code is done **for educational purposes only**, with the goal of learning how to integrate AWS with Spring Boot.
+   > In real-world environments, the recommended approach is to create these resources using an **Infrastructure as Code** tool, such as **Terraform**, and have the application simply connect to them.
 
 ---
 
 ### 🖥️ Frontend (React + Vite)
 
-1. Instale as dependências:
+1. Instale as dependências | Install the dependencies :
 
    ```bash
-   cd frontend
+   cd socketFrontend
    npm install
    ```
 
