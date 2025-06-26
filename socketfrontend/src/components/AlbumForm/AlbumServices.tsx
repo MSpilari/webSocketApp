@@ -17,7 +17,7 @@ const uploadAlbum = async (
   });
 
   const response = await axios.post(
-    "http://localhost:8080/api/v1/upload",
+    `${import.meta.env.VITE_API_BACKEND_URL}/api/v1/upload`,
     formData,
     {
       headers: {

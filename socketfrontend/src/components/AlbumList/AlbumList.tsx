@@ -8,7 +8,7 @@ const AlbumList: React.FC = () => {
   const { albums, setAlbums } = useAlbumListHooks();
 
   useEffect(() => {
-    const client = createClient("http://localhost:8080/ws");
+    const client = createClient(`${import.meta.env.VITE_API_BACKEND_URL}/ws`);
     connectClient(client, "/topic/albums", "/app/albums", setAlbums);
 
     return () => {
