@@ -1,0 +1,13 @@
+target/
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+.env
+node_modules/
+*.md 
+*.txt
+.gitignore
+.gitattributes
+eslint.config.js
