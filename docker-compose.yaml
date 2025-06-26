@@ -1,0 +1,38 @@
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,dynamodb
+      - DEBUG=1
+    volumes:
+      - "localstack_data:/var/lib/localstack"
+
+  spring-boot-app:
+    container_name: spring-boot-app
+    build: 
+      context: "./webSocketBackend"
+      dockerfile: Dockerfile.dev
+    environment:
+      AWS_ENDPOINT: http://localstack:4566
+      FRONTEND_URL: http://localhost
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "localstack"
+
+  vite-react-app:
+    container_name: vite-react-app
+    build:
+      context: ./socketfrontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BACKEND_URL=http://localhost:8080
+    ports:
+      - "80:80"
+    depends_on:
+      - spring-boot-app
+volumes:
+  localstack_data:
